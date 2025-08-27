@@ -38,6 +38,6 @@ jobs:
 
       - name: Push to DockerHub
         run: |
-          echo "dckr_pat_64xiohStWK51yVIbP3HlR5HiGi0" | docker login -u "itadori7" --password-stdin
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           docker tag myapp:latest mydockerhubuser/myapp:latest
           docker push mydockerhubuser/myapp:latest
